@@ -2,7 +2,9 @@
 
 bool has_dev_name(char *str)
 {
-	return str[0] == '/';
+	/* if a device name begins with a single slash
+	   we assume it's a local device node */
+	return str[0] == '/' && str[1] != '/';
 }
 
 void init_watchlist(struct waitdisks_watchlist *wl)
